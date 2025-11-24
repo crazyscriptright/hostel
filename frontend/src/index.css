@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 🎨 Social Sharing Styles */
+.social-share-footer .social-share {
+  @apply flex-wrap gap-1;
+}
+
+.social-share-footer .social-share button {
+  @apply text-xs px-2 py-1 rounded;
+}
+
+.social-share-footer .social-share svg {
+  @apply w-3 h-3;
+}
+
+.social-share-footer .social-share > div > span {
+  @apply text-xs font-medium text-slate-400;
+}
+
+/* 🔍 SEO Content Hidden Styles */
+.seo-content {
+  position: absolute !important;
+  left: -9999px !important;
+  width: 1px !important;
+  height: 1px !important;
+  overflow: hidden !important;
+}
+
+/* 📱 Responsive Social Share */
+@media (max-width: 768px) {
+  .social-share-footer .social-share {
+    @apply flex-col gap-2;
+  }
+  
+  .social-share-footer .social-share > div {
+    @apply flex-wrap gap-1;
+  }
+}

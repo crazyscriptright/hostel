@@ -1,0 +1,37 @@
+User-agent: *
+Allow: /
+
+# Allow all pages except private areas
+Disallow: /admin/
+Disallow: /warden/
+Disallow: /dashboard/
+Disallow: /api/
+Disallow: /*.json$
+Disallow: /*_t=*
+
+# Important pages for crawling
+Allow: /
+Allow: /about
+Allow: /register
+Allow: /raise-complaint
+
+# Sitemap
+Sitemap: https://govthostelcare.me/sitemap.xml
+Sitemap: https://govthostelcare.me/sitemap_simple.xml
+
+# Crawl delay (optional - 1 second)
+Crawl-delay: 1
+
+# Additional directives for better SEO
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Block common bad bots (optional)
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /

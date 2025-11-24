@@ -1,0 +1,42 @@
+# Serve static files first
+[[redirects]]
+  from = "/sitemap*.xml"
+  to = "/sitemap*.xml"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/robots.txt"
+  to = "/robots.txt"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/*.xml"
+  to = "/*.xml"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/*.txt"
+  to = "/*.txt"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/favicon.ico"
+  to = "/favicon.ico"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/manifest.json"
+  to = "/manifest.json"
+  status = 200
+  force = true
+
+# SPA fallback for all other routes
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  
+  <!-- Homepage -->
+  <url>
+    <loc>https://govthostelcare.me/</loc>
+    <lastmod>2025-09-28</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://govthostelcare.me/images/hero.png</image:loc>
+      <image:title>GovtHostelCare - Modern Hostel Management for Students</image:title>
+      <image:caption>Comprehensive digital platform for government hostel management</image:caption>
+    </image:image>
+  </url>
+  
+  <!-- About Page -->
+  <url>
+    <loc>https://govthostelcare.me/about</loc>
+    <lastmod>2025-09-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://govthostelcare.me/images/hostelimage.png</image:loc>
+      <image:title>About GovtHostelCare Platform</image:title>
+      <image:caption>Learn about our comprehensive hostel management solutions</image:caption>
+    </image:image>
+  </url>
+  
+  <!-- Student Registration -->
+  <url>
+    <loc>https://govthostelcare.me/register</loc>
+    <lastmod>2025-09-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://govthostelcare.me/images/image2.png</image:loc>
+      <image:title>Student Registration Portal</image:title>
+      <image:caption>Register for government hostel accommodation services</image:caption>
+    </image:image>
+  </url>
+  
+  <!-- Raise Complaint -->
+  <url>
+    <loc>https://govthostelcare.me/raise-complaint</loc>
+    <lastmod>2025-09-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://govthostelcare.me/images/image3.png</image:loc>
+      <image:title>Hostel Complaint Management System</image:title>
+      <image:caption>Submit and track your hostel-related complaints efficiently</image:caption>
+    </image:image>
+  </url>
+  
+  <!-- Reset Password -->
+  <url>
+    <loc>https://govthostelcare.me/reset-password</loc>
+    <lastmod>2025-09-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
+</urlset>

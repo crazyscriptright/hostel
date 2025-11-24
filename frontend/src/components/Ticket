@@ -1,0 +1,111 @@
+import React, { useState, useEffect } from "react";
+
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000";
+
+const TicketEscalationForm = () => {
+  const [complaints, setComplaints] = useState([]);
+  const [selectedComplaint, setSelectedComplaint] = useState("");
+  const [extraDetails, setExtraDetails] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState("");
+
+  const shid = localStorage.getItem("shid");
+
+  // Fetch unresolved complaints
+  useEffect(() => {
+    const fetchComplaints = async () => {
+      try {
+        const res = await fetch(`${API_BASE_URL}/complaints/unresolved/${shid}`);
+        const data = await res.json();
+        if (res.ok) setComplaints(data);
+      } catch (err) {
+        setMessage("Network error. Could not fetch complaints.");
+      }
+    };
+    fetchComplaints();
+  }, [shid]);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setMessage("");
+    setLoading(true);
+    try {
+      const res = await fetch(`${API_BASE_URL}/complaints/escalate`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          shid,
+          complaint_id: selectedComplaint || null,
+          extra_details: extraDetails,
+        }),
+      });
+      const data = await res.json();
+      if (res.ok) {
+        setMessage("✅ Ticket escalation request submitted successfully.");
+        setSelectedComplaint("");
+        setExtraDetails("");
+      } else {
+        setMessage(`Error: ${data.detail || "Something went wrong"}`);
+      }
+    } catch (error) {
+      setMessage("Network error. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div className="bg-slate-800/90 border border-indigo-500/40 p-6 rounded-lg shadow-lg max-w-xl mx-auto text-white">
+      <h2 className="text-2xl font-bold text-indigo-400 mb-4">Raise a Ticket</h2>
+
+      {message && (
+        <div
+          className={`text-sm p-2 rounded mb-4 ${
+            message.startsWith("✅") ? "bg-green-500/20 text-green-300" : "bg-red-500/20 text-red-300"
+          }`}
+        >
+          {message}
+        </div>
+      )}
+
+      <form onSubmit={handleSubmit}>
+        {/* Complaint Selection */}
+        <label className="block text-sm font-medium mb-1">Select Complaint (optional)</label>
+        <select
+          value={selectedComplaint}
+          onChange={(e) => setSelectedComplaint(e.target.value)}
+          className="w-full p-2 mb-4 rounded bg-slate-700 border border-slate-600 focus:border-indigo-500 focus:ring focus:ring-indigo-500/30 outline-none"
+        >
+          <option value="">-- None --</option>
+          {complaints.map((c) => (
+            <option key={c.id} value={c.id}>
+              {c.title} ({c.category})
+            </option>
+          ))}
+        </select>
+
+        {/* Extra Details */}
+        <label className="block text-sm font-medium mb-1">Additional Details</label>
+        <textarea
+          value={extraDetails}
+          onChange={(e) => setExtraDetails(e.target.value)}
+          rows="4"
+          className="w-full p-2 mb-4 rounded bg-slate-700 border border-slate-600 focus:border-indigo-500 focus:ring focus:ring-indigo-500/30 outline-none"
+          placeholder="Explain why this needs escalation..."
+          required
+        />
+
+        {/* Submit Button */}
+        <button
+          type="submit"
+          disabled={loading}
+          className="w-full bg-indigo-600 hover:bg-indigo-700 px-4 py-2 rounded font-semibold transition disabled:opacity-50"
+        >
+          {loading ? "Submitting..." : "Raise Ticket"}
+        </button>
+      </form>
+    </div>
+  );
+};
+
+export default TicketEscalationForm;
