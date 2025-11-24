@@ -54,7 +54,7 @@ const AdminAnalytics = () => {
         setData(res.data);
       } catch (err) {
         setError("Failed to load analytics.");
-        console.error(err);
+
       } finally {
         setLoading(false);
       }
@@ -63,7 +63,7 @@ const AdminAnalytics = () => {
   }, []);
 
   if (loading)
-    return <p className="text-lg animate-pulse">Loading analytics…</p>;
+    return <p className="text-lg animate-pulse">Loading analyticsâ€¦</p>;
   if (error)
     return <p className="text-lg text-red-500 font-semibold">{error}</p>;
 

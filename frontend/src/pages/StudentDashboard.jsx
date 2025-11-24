@@ -24,7 +24,7 @@ const StudentDashboard = () => {
         setData((prev) => ({ ...prev, student: resData.student }));
         localStorage.setItem("studentName", resData.student.name);
       })
-      .catch(console.error);
+      .catch(() => {});
 
     fetch(`${API_BASE_URL}/fetch_complaint/${shid}`)
       .then((res) => res.json())
@@ -39,7 +39,7 @@ const StudentDashboard = () => {
           },
         }));
       })
-      .catch(console.error);
+      .catch(() => {});
   };
 
   useEffect(() => {
@@ -68,10 +68,10 @@ const StudentDashboard = () => {
         alert(result.message);
         fetchData();
       } else {
-        alert("❌ Error: " + (result?.detail || result?.message));
+        alert("âŒ Error: " + (result?.detail || result?.message));
       }
     } catch (err) {
-      console.error("Withdraw error:", err);
+
       alert("Something went wrong while withdrawing the complaint.");
     }
   };

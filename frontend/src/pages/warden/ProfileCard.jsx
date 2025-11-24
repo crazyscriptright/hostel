@@ -6,23 +6,23 @@ const ProfileCard = ({ warden }) => {
         border border-gray-800 bg-gradient-to-br from-gray-950 to-gray-900 
         shadow-lg hover:shadow-blue-500/20 transition-all duration-300">
 
-      {/* ✅ Header with Icon */}
+      {/* âœ… Header with Icon */}
       <div className="flex items-center gap-4 border-b border-gray-800 pb-4">
         <FaUserCircle className="text-blue-400 text-5xl" />
         <div>
           <h2 className="text-2xl font-bold text-white">{warden.name}</h2>
-          <p className="text-blue-400 text-sm">Warden • Hostel {warden.hid}</p>
+          <p className="text-blue-400 text-sm">Warden â€¢ Hostel {warden.hid}</p>
         </div>
       </div>
 
-      {/* ✅ Details List */}
+      {/* âœ… Details List */}
       <div className="mt-5 space-y-4">
         <DetailRow icon={<FaEnvelope />} label="Email" value={warden.mail} />
         <DetailRow icon={<FaPhoneAlt />} label="Phone" value={warden.phone} />
         <DetailRow icon={<FaBuilding />} label="Hostel ID" value={`#${warden.hid}`} />
       </div>
 
-      {/* ✅ Footer Bar */}
+      {/* âœ… Footer Bar */}
       <div className="mt-5 border-t border-gray-800 pt-4 text-center text-gray-500 text-sm">
         Logged in as <span className="text-blue-400 font-medium">Warden</span>
       </div>
@@ -30,7 +30,7 @@ const ProfileCard = ({ warden }) => {
   );
 };
 
-// ✅ Reusable Row Component
+// âœ… Reusable Row Component
 const DetailRow = ({ icon, label, value }) => (
   <div className="flex items-center gap-3 p-3 rounded-lg bg-gray-800/40 hover:bg-gray-800/60 transition">
     <div className="text-blue-400 text-lg">{icon}</div>

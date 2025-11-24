@@ -1,6 +1,6 @@
 /*  src/components/AdminSettings.jsx
-    • "My Profile" – update own admin details (with confirm‑password)
-    • "Add New Admin" – assign another admin (with confirm‑password)
+    â€¢ "My Profile" â€“ update own admin details (with confirmâ€‘password)
+    â€¢ "Add New Admin" â€“ assign another admin (with confirmâ€‘password)
     -------------------------------------------------------------- */
 import React, { useEffect, useState } from "react";
 import { adminAxios } from "../utils/axiosConfig";
@@ -26,7 +26,7 @@ const AdminSettings = () => {
     confirm: "",
   });
 
-  /* add‑admin form */
+  /* addâ€‘admin form */
   const [newAdmin, setNewAdmin] = useState({
     name: "",
     email: "",
@@ -85,7 +85,7 @@ const AdminSettings = () => {
       adminData.email = myForm.email;
       localStorage.setItem("admin_data", JSON.stringify(adminData));
       
-      setMsg("Profile updated ✔");
+      setMsg("Profile updated âœ”");
       setMyForm({ ...myForm, password: "", confirm: "" });
     } catch (e) {
       setErr(e.response?.data?.detail || "Failed to update profile.");
@@ -117,7 +117,7 @@ const AdminSettings = () => {
         email: newAdmin.email,
         password: newAdmin.password,
       });
-      setMsg("New admin added ✔");
+      setMsg("New admin added âœ”");
       setNewAdmin({ name: "", email: "", password: "", confirm: "" });
     } catch (e) {
       setErr(e.response?.data?.detail || "Failed to add admin.");

@@ -38,7 +38,7 @@ import AdminWardens from "./components/AdminWardens";
 import AdminComplaints from "./components/AdminComplaints";
 import AdminSettings from "./components/AdminSettings";
 
-// ✅ Warden pages
+// âœ… Warden pages
 import WardenProtectedRoute from "./components/WardenProtectedRoute";
 import WardenLogin from "./pages/warden/WardenLogin";
 import WardenDashboard from "./pages/warden/WardenDashboard";
@@ -46,11 +46,11 @@ import WardenDashboard from "./pages/warden/WardenDashboard";
 function App() {
   const location = useLocation();
 
-  // ✅ Detect if we are on admin or warden page
+  // âœ… Detect if we are on admin or warden page
   const isAdminPage = location.pathname.startsWith("/admin");
   const isWardenPage = location.pathname.startsWith("/warden");
 
-  // ✅ Hide navbar & footer on admin & warden pages
+  // âœ… Hide navbar & footer on admin & warden pages
   const hideLayout = isAdminPage || isWardenPage;
 
   return (
@@ -60,7 +60,7 @@ function App() {
 
         <main className="flex-grow">
           <Routes>
-            {/* ✅ Public/student routes */}
+            {/* âœ… Public/student routes */}
             <Route path="/" element={
               <>
                 <HomeSEO />
@@ -91,7 +91,7 @@ function App() {
             
             <Route path="/reset-password/:shid" element={<ResetPassword />} />
 
-            {/* ✅ Protected student routes */}
+            {/* âœ… Protected student routes */}
             <Route
               path="/dashboard"
               element={
@@ -102,7 +102,7 @@ function App() {
               }
             />
 
-            {/* ✅ Warden routes */}
+            {/* âœ… Warden routes */}
             <Route path="/warden/login" element={
               <>
                 <WardenSEO />
@@ -119,7 +119,7 @@ function App() {
               } 
             />
 
-            {/* ✅ Admin routes */}
+            {/* âœ… Admin routes */}
             <Route path="/admin/login" element={
               <>
                 <AdminSEO />
@@ -168,7 +168,7 @@ function App() {
               }
             />
 
-            {/* ✅ TODO: Add a catch-all 404 route if needed */}
+            {/* âœ… TODO: Add a catch-all 404 route if needed */}
           </Routes>
         </main>
 

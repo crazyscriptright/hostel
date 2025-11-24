@@ -59,7 +59,7 @@ const AdminWardens = () => {
         setWardens(Array.isArray(wData) ? wData : (wData.wardens || []));
         setHostels(Array.isArray(aData) ? [] : (aData.hostels || []));
       } catch (err) {
-        console.error('Error loading wardens:', err);
+
         setError("Failed to load wardens.");
         setWardens([]);
         setHostels([]);
@@ -160,7 +160,7 @@ const AdminWardens = () => {
   const hostelNames = ["all", ...new Set((hostels || []).map((h) => h.name).filter(Boolean))];
 
   /* splash screens */
-  if (loading) return <Splash text="Loading…" pulse />;
+  if (loading) return <Splash text="Loadingâ€¦" pulse />;
   if (error) return <Splash text={error} error />;
 
   /* main render */
@@ -204,7 +204,7 @@ const AdminWardens = () => {
                         "firstname"}
                       @123
                     </code>
-                    &nbsp;— ask warden to change on first login.
+                    &nbsp;â€” ask warden to change on first login.
                   </p>
                 </div>
                 <button

@@ -17,7 +17,7 @@ import {
 
 const COLORS = ["#FBBF24", "#10B981", "#EF4444"]; // Yellow, Green, Red
 
-const CustomTooltip = () => null; // ❌ Disables hover tooltip completely
+const CustomTooltip = () => null; // âŒ Disables hover tooltip completely
 
 const ComplaintChart = ({ complaints }) => {
     const [isLineChart, setIsLineChart] = useState(false);
@@ -42,7 +42,7 @@ const ComplaintChart = ({ complaints }) => {
             {/* Pie Chart */}
             <div className="bg-gray-900/60 rounded-2xl border border-gray-800 shadow-md p-6">
                 <h3 className="text-xl font-bold text-yellow-300 mb-4 flex items-center gap-2">
-                    📊 Complaint Status Distribution
+                    ðŸ“Š Complaint Status Distribution
                 </h3>
                 <ResponsiveContainer width="100%" height={250}>
                     <PieChart>
@@ -68,7 +68,7 @@ const ComplaintChart = ({ complaints }) => {
             <div className="bg-gray-900/60 rounded-2xl border border-gray-800 shadow-md p-6 relative">
                 <div className="flex justify-between items-center mb-4">
                     <h3 className="text-xl font-bold text-blue-400 flex items-center gap-2">
-                        📈 Bar Chart View
+                        ðŸ“ˆ Bar Chart View
                     </h3>
                     <button
                         onClick={() => setIsLineChart(!isLineChart)}
@@ -80,11 +80,11 @@ const ComplaintChart = ({ complaints }) => {
                     >
                         {isLineChart ? (
                             <>
-                                📊 <span>Bar Chart</span>
+                                ðŸ“Š <span>Bar Chart</span>
                             </>
                         ) : (
                             <>
-                                📈 <span>Line Chart</span>
+                                ðŸ“ˆ <span>Line Chart</span>
                             </>
                         )}
                     </button>

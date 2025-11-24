@@ -125,7 +125,7 @@ const StudentInfoTab = ({ student, onSave }) => {
                   className="w-full px-2 py-1 text-black rounded"
                 />
               ) : (
-                <p>{student.hostel.name} – {student.hostel.location}</p>
+                <p>{student.hostel.name} â€“ {student.hostel.location}</p>
               )}
             </div>
 

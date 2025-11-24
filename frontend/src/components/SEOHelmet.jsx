@@ -25,19 +25,19 @@ const SEOHelmet = ({
 
   return (
     <Helmet>
-      {/* 🎯 Primary Meta Tags */}
+      {/* ðŸŽ¯ Primary Meta Tags */}
       <title>{seoData.title}</title>
       <meta name="description" content={seoData.description} />
       <meta name="keywords" content={seoData.keywords} />
       <meta name="author" content="GovtHostelCare Team" />
       
-      {/* 🤖 Robots */}
+      {/* ðŸ¤– Robots */}
       <meta name="robots" content={noIndex ? "noindex, nofollow" : seoData.robots || "index, follow, max-snippet:-1, max-video-preview:-1, max-image-preview:large"} />
       
-      {/* 🔗 Canonical URL */}
+      {/* ðŸ”— Canonical URL */}
       <link rel="canonical" href={seoData.url} />
       
-      {/* 🌍 Open Graph / Facebook */}
+      {/* ðŸŒ Open Graph / Facebook */}
       <meta property="og:type" content={seoData.type || "website"} />
       <meta property="og:url" content={seoData.url} />
       <meta property="og:title" content={seoData.title} />
@@ -49,7 +49,7 @@ const SEOHelmet = ({
       <meta property="og:site_name" content={siteSEO.siteName} />
       <meta property="og:locale" content={siteSEO.locale} />
       
-      {/* 🐦 Twitter Card */}
+      {/* ðŸ¦ Twitter Card */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content={siteSEO.twitterHandle} />
       <meta name="twitter:creator" content={siteSEO.twitterHandle} />
@@ -59,12 +59,12 @@ const SEOHelmet = ({
       <meta name="twitter:image" content={seoData.image} />
       <meta name="twitter:image:alt" content={seoData.title} />
       
-      {/* 📱 Mobile & App */}
+      {/* ðŸ“± Mobile & App */}
       <meta name="theme-color" content={siteSEO.themeColor} />
       <meta name="msapplication-TileColor" content={siteSEO.themeColor} />
       <meta name="apple-mobile-web-app-title" content={siteSEO.siteName} />
       
-      {/* 🌐 Additional Meta */}
+      {/* ðŸŒ Additional Meta */}
       <meta name="category" content="Education, Technology, Student Services" />
       <meta name="coverage" content="Worldwide" />
       <meta name="distribution" content="Global" />
@@ -74,40 +74,40 @@ const SEOHelmet = ({
       <meta name="geo.region" content="IN" />
       <meta name="geo.country" content="India" />
       
-      {/* 📊 Structured Data */}
+      {/* ðŸ“Š Structured Data */}
       {structuredData && (
         <script type="application/ld+json">
           {JSON.stringify(structuredData)}
         </script>
       )}
       
-      {/* 🍞 Breadcrumb Structured Data */}
+      {/* ðŸž Breadcrumb Structured Data */}
       {breadcrumbStructuredData && (
         <script type="application/ld+json">
           {JSON.stringify(breadcrumbStructuredData)}
         </script>
       )}
       
-      {/* 🔍 Page-specific Structured Data */}
+      {/* ðŸ” Page-specific Structured Data */}
       {seoData.structuredData && (
         <script type="application/ld+json">
           {JSON.stringify(seoData.structuredData)}
         </script>
       )}
       
-      {/* ⚡ Performance Hints */}
+      {/* âš¡ Performance Hints */}
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
       <link rel="dns-prefetch" href="//www.google-analytics.com" />
       
-      {/* 🔒 Security */}
+      {/* ðŸ”’ Security */}
       <meta httpEquiv="X-Content-Type-Options" content="nosniff" />
       <meta httpEquiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
     </Helmet>
   );
 };
 
-// 🎯 Pre-configured SEO components for common pages
+// ðŸŽ¯ Pre-configured SEO components for common pages
 export const HomeSEO = (props) => <SEOHelmet page="home" {...props} />;
 export const AboutSEO = (props) => <SEOHelmet page="about" {...props} />;
 export const RegisterSEO = (props) => <SEOHelmet page="register" {...props} />;

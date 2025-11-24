@@ -26,7 +26,7 @@ const WardenDashboard = () => {
         const complaintsRes = await wardenAxios.get("/warden/complaints");
         setComplaints(complaintsRes.data.complaints);
       } catch (err) {
-        console.error("❌ Fetch error:", err);
+
       } finally {
         setLoading(false);
       }
@@ -52,7 +52,7 @@ const WardenDashboard = () => {
         }
       });
     } catch (err) {
-      console.error("Logout error:", err);
+
     }
     clearWardenTokens();
     localStorage.clear();
@@ -71,14 +71,14 @@ const WardenDashboard = () => {
         alert("No proof image available");
       }
     } catch (err) {
-      console.error("Error fetching proof image:", err);
+
       alert("Failed to load proof image");
     }
   };
 
   const handleStatusChange = async (cid, currentStatus, newStatus) => {
     if (currentStatus === "Withdrawn") {
-      alert("⚠️ This complaint is Withdrawn and cannot be updated.");
+      alert("âš ï¸ This complaint is Withdrawn and cannot be updated.");
       return;
     }
     if (currentStatus === newStatus) return;
@@ -92,7 +92,7 @@ const WardenDashboard = () => {
       });
 
       if (res.status !== 200) {
-        alert("❌ Failed to update status");
+        alert("âŒ Failed to update status");
         return;
       }
 
@@ -102,10 +102,10 @@ const WardenDashboard = () => {
         )
       );
       
-      alert("✅ Status updated successfully!");
+      alert("âœ… Status updated successfully!");
     } catch (err) {
-      console.error("Error updating status:", err);
-      alert("❌ Failed to update status");
+
+      alert("âŒ Failed to update status");
     }
   };
 
@@ -118,7 +118,7 @@ const WardenDashboard = () => {
   if (!warden)
     return (
       <div className="flex justify-center items-center min-h-screen text-white">
-        ⚠ Not logged in.
+        âš  Not logged in.
       </div>
     );
 
@@ -150,7 +150,7 @@ const WardenDashboard = () => {
               Welcome, <span className="text-blue-400">{warden.name}</span>
             </h2>
 
-            {/* ✅ Updated 4 Square Cards */}
+            {/* âœ… Updated 4 Square Cards */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
               <StatCard title="Total" value={total} bgColor="blue-600" />
               <StatCard title="Pending" value={pending} bgColor="yellow-500" />
@@ -173,7 +173,7 @@ const WardenDashboard = () => {
             </h3>
             {complaints.length === 0 ? (
               <p className="text-gray-400 text-center py-6">
-                ✅ No complaints found for your hostel.
+                âœ… No complaints found for your hostel.
               </p>
             ) : (
               <ComplaintTable

@@ -26,7 +26,7 @@ const ComplaintGuide = () => {
       icon: <FaTachometerAlt className="text-green-400 text-3xl" />,
       title: "Step 3: Access Student Dashboard",
       description:
-        "After login, you’ll be redirected to your personal dashboard to manage complaints.",
+        "After login, youâ€™ll be redirected to your personal dashboard to manage complaints.",
     },
     {
       icon: <FaUpload className="text-pink-400 text-3xl" />,
@@ -38,7 +38,7 @@ const ComplaintGuide = () => {
       icon: <FaComments className="text-blue-400 text-3xl" />,
       title: "Step 5: Track & Provide Feedback",
       description:
-        "Track the status of your complaint and share your feedback once it’s resolved.",
+        "Track the status of your complaint and share your feedback once itâ€™s resolved.",
     },
   ];
 
@@ -136,7 +136,7 @@ const ComplaintGuide = () => {
         className="mt-16 text-center max-w-2xl"
       >
         <p className="text-lg text-slate-300">
-          ✅ Following these steps ensures your complaint is properly recorded,
+          âœ… Following these steps ensures your complaint is properly recorded,
           tracked, and resolved without delays.
         </p>
         <button className="mt-6 px-6 py-3 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white font-semibold shadow-lg transition">

@@ -53,7 +53,7 @@ const AdminSidebar = () => {
       // Navigate to login page with cache busting
       window.location.href = `/admin/login?_t=${Date.now()}`;
     } catch (err) {
-      console.error("Logout failed:", err);
+
       // Even if logout fails, clear local data and redirect
       localStorage.clear();
       sessionStorage.clear();
@@ -61,7 +61,7 @@ const AdminSidebar = () => {
     }
   };
 
-  /* ───────── links (with wardens + guarded settings) ───────── */
+  /* â”€â”€â”€â”€â”€â”€â”€â”€â”€ links (with wardens + guarded settings) â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
   const links = [
     { to: "/admin/welcome",    label: "Dashboard",    icon: <FaTachometerAlt /> },
     { to: "/admin/users",      label: "Manage Users", icon: <FaUsers /> },
@@ -71,10 +71,10 @@ const AdminSidebar = () => {
       to: "/admin/settings",
       label: "Settings",
       icon: <FaCog />,
-      /* extra guard — ask before leaving */
+      /* extra guard â€” ask before leaving */
       onGuard: () =>
         window.confirm(
-          "You’re about to open Admin Settings. Continue only if this screen isn’t visible to students/wardens."
+          "Youâ€™re about to open Adminâ€¯Settings. Continue only if this screen isnâ€™t visible to students/wardens."
         ),
     },
   ];

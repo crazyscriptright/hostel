@@ -62,7 +62,7 @@ export const setCookie = (name, value, days = 1, options = {}) => {
   document.cookie = cookieString;
   
   if (isProduction) {
-    console.log(`🍪 Production cookie set: ${name} (domain: ${finalOptions.domain})`);
+    // Cookie set in production
   }
 };
 
@@ -108,9 +108,7 @@ export const deleteCookie = (name, options = {}) => {
   
   document.cookie = cookieString;
   
-  if (isProduction) {
-    console.log(`🗑️ Production cookie deleted: ${name} (domain: ${finalOptions.domain})`);
-  }
+  // Cookie deleted in production
 };
 
 /**
@@ -137,14 +135,14 @@ export const nuclearClearCookies = () => {
       });
     });
     
-    console.log('🧨 Nuclear cookie clearing completed (production subdomain-aware)');
+    // Nuclear cookie clearing completed (production)
   } else {
     // Development clearing
     allCookies.forEach(cookieName => {
       deleteCookie(cookieName);
     });
     
-    console.log('🧨 Nuclear cookie clearing completed (development)');
+    // Nuclear cookie clearing completed (development)
   }
   
   // Also clear localStorage for good measure
@@ -172,8 +170,8 @@ export const testCookieSupport = () => {
   const isWorking = retrieved === testValue;
   
   if (!isWorking && isProduction) {
-    console.warn('⚠️ Cookie support test failed in production!');
-    console.warn('This might indicate CORS or SameSite policy issues.');
+
+
   }
   
   return isWorking;
@@ -199,12 +197,7 @@ export const getEnvironmentInfo = () => {
  * Log environment info for debugging
  */
 export const debugCookieEnvironment = () => {
-  const info = getEnvironmentInfo();
-  console.group('🍪 Cookie Environment Debug');
-  Object.entries(info).forEach(([key, value]) => {
-    console.log(`${key}:`, value);
-  });
-  console.groupEnd();
+  // Cookie environment debug removed for production
 };
 
 // Auto-debug in development

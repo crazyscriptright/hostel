@@ -1,5 +1,5 @@
 /*  src/pages/AdminUsers.jsx
-    Left‑aligned, extra‑wide "Manage Users" table
+    Leftâ€‘aligned, extraâ€‘wide "Manage Users" table
 ------------------------------------------------------------------*/
 import React, { useEffect, useMemo, useState } from "react";
 import { adminAxios } from "../utils/axiosConfig";
@@ -36,9 +36,10 @@ const AdminUsers = () => {
     (async () => {
       try {
         const { data } = await adminAxios.get("/admin/students");
-        setStudents(data.students || []);
+        // Handle direct array response
+        setStudents(Array.isArray(data) ? data : (data.students || []));
       } catch (err) {
-        console.error('Error loading students:', err);
+
         setError("Failed to load students.");
         setStudents([]);
       } finally {
@@ -55,6 +56,7 @@ const AdminUsers = () => {
       .filter(
         (s) =>
           s.name?.toLowerCase().includes(t) ||
+          s.email?.toLowerCase().includes(t) ||
           s.mail?.toLowerCase().includes(t) ||
           s.phone?.includes(t)
       )
@@ -73,7 +75,7 @@ const AdminUsers = () => {
     setForm({
       name: s.name,
       phone: s.phone,
-      mail: s.mail,
+      mail: s.email || s.mail,
       dob: s.dob?.slice(0, 10) || "",
       hid: s.hid,
     });
@@ -103,7 +105,7 @@ const AdminUsers = () => {
   const hostelNames = ["all", ...new Set((students || []).map((s) => s.hostel_name))];
 
   if (loading)
-    return <ScreenMsg text="Loading users…" pulse />;
+    return <ScreenMsg text="Loading usersâ€¦" pulse />;
   if (error)
     return <ScreenMsg text={error} error />;
 
@@ -124,7 +126,7 @@ const AdminUsers = () => {
           />
         </div>
 
-        {/* left‑aligned wide table: 95 % on md+, 100 % on small */}
+        {/* leftâ€‘aligned wide table: 95 % on md+, 100 % on small */}
         <div className="w-full md:w-[98%]">
           <div className="rounded-lg shadow bg-white overflow-hidden">
             <div className="overflow-auto" style={{ maxHeight: TABLE_HEIGHT }}>
@@ -147,7 +149,7 @@ const AdminUsers = () => {
                       <Td>{editId === s.sid ? <Input name="name" value={form.name} onChange={handleChange} /> : s.name}</Td>
                       <Td>{editId === s.sid ? <Input name="phone" value={form.phone} onChange={handleChange} /> : s.phone}</Td>
                       <Td className="truncate">
-                        {editId === s.sid ? <Input name="mail" value={form.mail} onChange={handleChange} /> : s.mail}
+                        {editId === s.sid ? <Input name="mail" value={form.mail} onChange={handleChange} /> : (s.email || s.mail)}
                       </Td>
                       <Td>
                         {editId === s.sid ? (
@@ -208,7 +210,7 @@ const AdminUsers = () => {
   );
 };
 
-/* ───────── tiny helpers ───────── */
+/* â”€â”€â”€â”€â”€â”€â”€â”€â”€ tiny helpers â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 const ScreenMsg = ({ text, pulse = false, error = false }) => (
   <div
     className={`min-h-screen flex items-center justify-center text-lg ${

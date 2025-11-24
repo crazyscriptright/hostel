@@ -22,7 +22,7 @@ const SocialShare = ({ url, title, description, className = "" }) => {
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch (err) {
-      console.error('Failed to copy link:', err);
+
     }
   };
 

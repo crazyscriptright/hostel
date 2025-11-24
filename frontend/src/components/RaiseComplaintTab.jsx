@@ -18,7 +18,7 @@ const RaiseComplaintTab = ({ setActiveTab, fetchData }) => {
   return (
     <div className="bg-gradient-to-br from-slate-800/80 to-slate-900/90 border border-indigo-500/40 p-6 rounded-2xl shadow-lg max-w-2xl mx-auto backdrop-blur-lg">
       <h3 className="text-3xl font-bold text-indigo-400 mb-6 text-center">
-        📝 Raise a New Complaint
+        ðŸ“ Raise a New Complaint
       </h3>
       <form
         onSubmit={async (e) => {
@@ -55,7 +55,7 @@ const RaiseComplaintTab = ({ setActiveTab, fetchData }) => {
             setActiveTab("complaints");
             fetchData();
           } catch (err) {
-            console.error(err);
+
             alert("Error submitting complaint.");
           }
         }}
@@ -109,7 +109,7 @@ const RaiseComplaintTab = ({ setActiveTab, fetchData }) => {
                 />
               ) : (
                 <div className="text-slate-400">
-                  📂 Drag & Drop or Click to Upload
+                  ðŸ“‚ Drag & Drop or Click to Upload
                 </div>
               )}
             </label>
@@ -121,7 +121,7 @@ const RaiseComplaintTab = ({ setActiveTab, fetchData }) => {
           type="submit"
           className="w-full bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-lg shadow-md text-lg font-semibold transform hover:scale-[1.02] transition-all duration-300"
         >
-          🚀 Submit Complaint
+          ðŸš€ Submit Complaint
         </button>
       </form>
     </div>

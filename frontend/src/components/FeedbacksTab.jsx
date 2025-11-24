@@ -26,7 +26,7 @@ const FeedbackForm = () => {
           setCurrentUser(null);
         }
       } catch (err) {
-        console.error("Session check failed:", err);
+
       }
     };
     checkSession();
@@ -69,7 +69,7 @@ const FeedbackForm = () => {
         alert(data.detail || data.message || "Failed to submit feedback.");
       }
     } catch (err) {
-      console.error("Error submitting feedback:", err);
+
       alert("Error submitting feedback.");
     }
 

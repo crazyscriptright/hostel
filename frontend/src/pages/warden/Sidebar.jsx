@@ -9,7 +9,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen, activeTab, setActiveTab, logout 
 
   return (
     <>
-      {/* ✅ Dark overlay for mobile */}
+      {/* âœ… Dark overlay for mobile */}
       {sidebarOpen && (
         <div
           className="fixed inset-0 bg-black/50 backdrop-blur-sm lg:hidden z-40"
@@ -40,7 +40,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen, activeTab, setActiveTab, logout 
               </button>
             ))}
 
-            {/* ✅ Logout */}
+            {/* âœ… Logout */}
             <button
               onClick={logout}
               className="flex items-center gap-3 w-full px-4 py-3 mt-10 rounded-lg text-red-400 hover:bg-red-500/20 transition-all duration-300"

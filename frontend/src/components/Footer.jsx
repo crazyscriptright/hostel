@@ -135,7 +135,7 @@ const Footer = () => {
 
       {/* Bottom Strip */}
       <div className="border-t border-slate-800 py-4 text-center text-slate-500 text-xs">
-        © {new Date().getFullYear()} <span className="text-indigo-400 font-semibold">GovtHostelCare</span>. All rights reserved. | 
+        Â© {new Date().getFullYear()} <span className="text-indigo-400 font-semibold">GovtHostelCare</span>. All rights reserved. | 
         <a href="/privacy" className="hover:text-indigo-400 ml-1">Privacy Policy</a> | 
         <a href="/terms" className="hover:text-indigo-400 ml-1">Terms of Service</a> | 
         <span className="ml-1">Part of Digital India Initiative</span>

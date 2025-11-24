@@ -23,28 +23,26 @@ export default function WardenLogin() {
       const data = response.data;
 
       if (data.status === "success" && data.warden) {
-        // ✅ Save warden info in localStorage
+        // âœ… Save warden info in localStorage
         localStorage.setItem("warden", JSON.stringify(data.warden));
 
-        // ✅ Tokens are automatically handled by axios interceptor
-        console.log("✅ Warden login successful!");
+        // âœ… Tokens are automatically handled by axios interceptor
 
-        // ✅ Redirect to warden dashboard
+        // âœ… Redirect to warden dashboard
         navigate("/warden/dashboard");
       } else {
-        setErrorMsg("❌ Login failed! Invalid response format.");
+        setErrorMsg("âŒ Login failed! Invalid response format.");
       }
     } catch (err) {
-      console.error("❌ Warden login error:", err);
-      
+
       if (err.response?.data?.detail) {
         setErrorMsg(err.response.data.detail);
       } else if (err.response?.status === 401) {
-        setErrorMsg("❌ Invalid credentials! Please check your email and password.");
+        setErrorMsg("âŒ Invalid credentials! Please check your email and password.");
       } else if (err.message.includes('CORS')) {
-        setErrorMsg("❌ Network error! Please check your connection and try again.");
+        setErrorMsg("âŒ Network error! Please check your connection and try again.");
       } else {
-        setErrorMsg("⚠️ Something went wrong! Please try again.");
+        setErrorMsg("âš ï¸ Something went wrong! Please try again.");
       }
     }
 
@@ -56,7 +54,7 @@ export default function WardenLogin() {
       <div className="bg-gray-800 shadow-xl rounded-xl p-8 w-full max-w-md border border-gray-700">
         {/* Title */}
         <h2 className="text-3xl font-bold text-center text-blue-400 mb-6">
-          🏢 Warden Login
+          ðŸ¢ Warden Login
         </h2>
 
         {/* Error Message */}
@@ -92,7 +90,7 @@ export default function WardenLogin() {
               name="password"
               value={formData.password}
               onChange={handleChange}
-              placeholder="••••••••"
+              placeholder="â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢"
               required
               className="w-full px-4 py-2 rounded-lg bg-gray-900 border border-gray-700 focus:ring-2 focus:ring-blue-500 text-gray-200"
             />
@@ -108,13 +106,13 @@ export default function WardenLogin() {
                 : "bg-blue-600 hover:bg-blue-700"
             }`}
           >
-            {loading ? "⏳ Logging in..." : "Login"}
+            {loading ? "â³ Logging in..." : "Login"}
           </button>
         </form>
 
         {/* Footer */}
         <div className="text-center mt-6 text-sm text-gray-400">
-          👉 Not registered? Contact admin.
+          ðŸ‘‰ Not registered? Contact admin.
         </div>
       </div>
     </div>

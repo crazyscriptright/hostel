@@ -4,7 +4,7 @@ const ComplaintTable = ({ complaints, handleStatusChange, handleViewProof }) => 
   return (
     <div className="overflow-x-auto rounded-xl border border-gray-800 shadow-lg bg-gray-900/40">
       <table className="w-full text-left border-collapse">
-        {/* ✅ Table Header */}
+        {/* âœ… Table Header */}
         <thead>
           <tr className="bg-gray-900/80">
             <Th>#</Th>
@@ -17,7 +17,7 @@ const ComplaintTable = ({ complaints, handleStatusChange, handleViewProof }) => 
           </tr>
         </thead>
 
-        {/* ✅ Table Body */}
+        {/* âœ… Table Body */}
         <tbody>
           {complaints.map((c, index) => (
             <tr
@@ -26,9 +26,9 @@ const ComplaintTable = ({ complaints, handleStatusChange, handleViewProof }) => 
             >
               <Td>{index + 1}</Td>
               <Td>{c.studentName}</Td>
-              <Td>{c.type || "—"}</Td>
+              <Td>{c.type || "â€”"}</Td>
 
-              {/* ✅ Status Column with Badges & Dropdown */}
+              {/* âœ… Status Column with Badges & Dropdown */}
               <Td>
                 {c.status === "Withdrawn" ? (
                   <StatusBadge status="Withdrawn" />
@@ -46,9 +46,9 @@ const ComplaintTable = ({ complaints, handleStatusChange, handleViewProof }) => 
                 )}
               </Td>
 
-              <Td className="max-w-xs truncate">{c.description || "—"}</Td>
+              <Td className="max-w-xs truncate">{c.description || "â€”"}</Td>
 
-              {/* ✅ Proof Button */}
+              {/* âœ… Proof Button */}
               <Td>
                 {c.proofImage ? (
                   <button
@@ -62,7 +62,7 @@ const ComplaintTable = ({ complaints, handleStatusChange, handleViewProof }) => 
                 )}
               </Td>
 
-              {/* ✅ Date */}
+              {/* âœ… Date */}
               <Td className="text-gray-400">
                 {new Date(c.createdAt).toLocaleDateString("en-GB", {
                   day: "2-digit",
@@ -78,7 +78,7 @@ const ComplaintTable = ({ complaints, handleStatusChange, handleViewProof }) => 
   );
 };
 
-/* ✅ Reusable Table Cell Components for Cleaner Look */
+/* âœ… Reusable Table Cell Components for Cleaner Look */
 const Th = ({ children }) => (
   <th className="p-3 text-gray-300 font-semibold uppercase tracking-wide text-sm">
     {children}
@@ -89,7 +89,7 @@ const Td = ({ children, className = "" }) => (
   <td className={`p-3 text-gray-200 ${className}`}>{children}</td>
 );
 
-/* ✅ Status Badge with Colors */
+/* âœ… Status Badge with Colors */
 const StatusBadge = ({ status }) => {
   let badgeColor =
     status === "Resolved"

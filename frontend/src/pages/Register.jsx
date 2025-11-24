@@ -33,12 +33,12 @@ const UserAuth = () => {
       (mode !== "forgot" && !pswd) ||
       (mode === "register" && !confirmPswd)
     ) {
-      setMessage("❌ All required fields must be filled.");
+      setMessage("âŒ All required fields must be filled.");
       return;
     }
 
     if (mode === "register" && pswd !== confirmPswd) {
-      setMessage("❌ Passwords do not match.");
+      setMessage("âŒ Passwords do not match.");
       return;
     }
 
@@ -56,12 +56,12 @@ const UserAuth = () => {
         const data = await response.json();
 
         if (response.ok) {
-          setMessage("📨 Reset link sent to your email.");
+          setMessage("ðŸ“¨ Reset link sent to your email.");
         } else {
-          setMessage(data.detail || "❌ Failed to send reset link.");
+          setMessage(data.detail || "âŒ Failed to send reset link.");
         }
       } catch (error) {
-        setMessage("❌ Server error while sending reset link.");
+        setMessage("âŒ Server error while sending reset link.");
       } finally {
         setLoading(false);
       }
@@ -81,12 +81,12 @@ const UserAuth = () => {
         if (data.status === "success") {
           localStorage.setItem("shid", shid);
           localStorage.setItem("user_data", JSON.stringify(data.user));
-          setMessage("✅ Login successful!");
+          setMessage("âœ… Login successful!");
           setTimeout(() => navigate("/dashboard"), 1500);
         } else if (data.status === "invalid") {
-          setMessage("❌ Invalid SHID or password.");
+          setMessage("âŒ Invalid SHID or password.");
         } else {
-          setMessage(data.message || "❌ Login failed.");
+          setMessage(data.message || "âŒ Login failed.");
         }
       } else {
         // For registration, use regular fetch (non-JWT endpoint)
@@ -101,18 +101,18 @@ const UserAuth = () => {
         const data = await response.json();
 
         if (data.status === "not_found") {
-          setMessage("❌ SHID not found.");
+          setMessage("âŒ SHID not found.");
         } else if (data.status === "exists") {
-          setMessage("⚠️ SHID already registered.");
+          setMessage("âš ï¸ SHID already registered.");
         } else if (data.status === "success") {
-          setMessage("✅ Registered successfully!");
+          setMessage("âœ… Registered successfully!");
           setTimeout(() => navigate("/"), 1500);
         } else {
-          setMessage("❌ Registration failed.");
+          setMessage("âŒ Registration failed.");
         }
       }
     } catch (error) {
-      setMessage("❌ Server error. Please try again later.");
+      setMessage("âŒ Server error. Please try again later.");
     } finally {
       setLoading(false);
     }
@@ -146,9 +146,9 @@ const UserAuth = () => {
                     Login to access your personal hostel dashboard and services.
                   </p>
                   <ul className="list-disc pl-6 space-y-2 text-slate-200">
-                    <li>📢 View hostel announcements</li>
-                    <li>📝 Raise and track complaints</li>
-                    <li>🤝 Connect with wardens instantly</li>
+                    <li>ðŸ“¢ View hostel announcements</li>
+                    <li>ðŸ“ Raise and track complaints</li>
+                    <li>ðŸ¤ Connect with wardens instantly</li>
                   </ul>
                 </>
               )}
@@ -159,9 +159,9 @@ const UserAuth = () => {
                     Register now and experience a seamless hostel experience.
                   </p>
                   <ul className="list-disc pl-6 space-y-2 text-slate-200">
-                    <li>🔒 Secure complaint system</li>
-                    <li>📊 Transparent tracking</li>
-                    <li>🎯 Student-friendly dashboard</li>
+                    <li>ðŸ”’ Secure complaint system</li>
+                    <li>ðŸ“Š Transparent tracking</li>
+                    <li>ðŸŽ¯ Student-friendly dashboard</li>
                   </ul>
                 </>
               )}
@@ -201,11 +201,11 @@ const UserAuth = () => {
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   className={`mb-4 px-4 py-3 rounded-md text-center font-medium ${
-                    message.includes("✅")
+                    message.includes("âœ…")
                       ? "bg-green-100 text-green-700"
-                      : message.includes("⚠️")
+                      : message.includes("âš ï¸")
                       ? "bg-yellow-100 text-yellow-700"
-                      : message.includes("📨")
+                      : message.includes("ðŸ“¨")
                       ? "bg-blue-100 text-blue-700"
                       : "bg-red-100 text-red-700"
                   }`}
@@ -308,7 +308,7 @@ const UserAuth = () => {
                 {mode === "login" && (
                   <>
                     <p>
-                      Don’t have an account?{" "}
+                      Donâ€™t have an account?{" "}
                       <button
                         onClick={() => handleModeChange("register")}
                         className="text-indigo-600 hover:underline font-medium"

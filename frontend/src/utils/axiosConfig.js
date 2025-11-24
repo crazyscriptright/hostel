@@ -18,14 +18,13 @@ const getApiBaseUrl = () => {
 };
 
 const API_BASE_URL = getApiBaseUrl();
-console.log(`🌐 API Base URL: ${API_BASE_URL}`);
 
 // Environment detection for debugging
 if (window.location.hostname.includes('govthostelcare.me')) {
-  console.log('🏭 Production mode: Using subdomain setup');
+
   debugCookieEnvironment();
 } else {
-  console.log('🛠️ Development mode: Using localhost');
+
 }
 
 // In-memory token storage
@@ -79,7 +78,7 @@ export const setAdminTokens = (tokens) => {
   adminTokens.access_token = tokens.access_token;
   adminTokens.refresh_token = tokens.refresh_token;
   if (window.location.hostname.includes('govthostelcare.me')) {
-    console.log('🔑 Admin tokens updated in production');
+
   }
 };
 
@@ -87,7 +86,7 @@ export const setWardenTokens = (tokens) => {
   wardenTokens.access_token = tokens.access_token;
   wardenTokens.refresh_token = tokens.refresh_token;
   if (window.location.hostname.includes('govthostelcare.me')) {
-    console.log('🔑 Warden tokens updated in production');
+
   }
 };
 
@@ -95,7 +94,7 @@ export const setUserTokens = (tokens) => {
   userTokens.access_token = tokens.access_token;
   userTokens.refresh_token = tokens.refresh_token;
   if (window.location.hostname.includes('govthostelcare.me')) {
-    console.log('🔑 User tokens updated in production');
+
   }
 };
 
@@ -103,7 +102,7 @@ export const clearAdminTokens = () => {
   adminTokens.access_token = null;
   adminTokens.refresh_token = null;
   if (window.location.hostname.includes('govthostelcare.me')) {
-    console.log('🗑️ Admin tokens cleared in production');
+
   }
 };
 
@@ -111,7 +110,7 @@ export const clearWardenTokens = () => {
   wardenTokens.access_token = null;
   wardenTokens.refresh_token = null;
   if (window.location.hostname.includes('govthostelcare.me')) {
-    console.log('🗑️ Warden tokens cleared in production');
+
   }
 };
 
@@ -119,7 +118,7 @@ export const clearUserTokens = () => {
   userTokens.access_token = null;
   userTokens.refresh_token = null;
   if (window.location.hostname.includes('govthostelcare.me')) {
-    console.log('🗑️ User tokens cleared in production');
+
   }
 };
 

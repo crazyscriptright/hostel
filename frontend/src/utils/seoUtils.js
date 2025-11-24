@@ -1,6 +1,6 @@
-// 🎯 SEO Utilities for GovtHostelCare
+// ðŸŽ¯ SEO Utilities for GovtHostelCare
 export const seoUtils = {
-  // 📊 Generate structured data for different content types
+  // ðŸ“Š Generate structured data for different content types
   generateStructuredData: {
     organization: (data = {}) => ({
       "@context": "https://schema.org",
@@ -73,14 +73,14 @@ export const seoUtils = {
     })
   },
 
-  // 🔗 Generate canonical URLs
+  // ðŸ”— Generate canonical URLs
   getCanonicalUrl: (path = '') => {
     const baseUrl = "https://govthostelcare.me";
     const cleanPath = path.startsWith('/') ? path : `/${path}`;
     return `${baseUrl}${cleanPath}`;
   },
 
-  // 🖼️ Generate optimized image URLs
+  // ðŸ–¼ï¸ Generate optimized image URLs
   getOptimizedImageUrl: (imagePath, options = {}) => {
     const baseUrl = "https://govthostelcare.me";
     const { width, height, quality = 80, format = 'webp' } = options;
@@ -98,7 +98,7 @@ export const seoUtils = {
     return paramString ? `${imageUrl}?${paramString}` : imageUrl;
   },
 
-  // 📱 Generate social media meta tags
+  // ðŸ“± Generate social media meta tags
   generateSocialMeta: (data = {}) => ({
     // Open Graph
     'og:title': data.title || 'GovtHostelCare - Complete Hostel Management System',
@@ -118,7 +118,7 @@ export const seoUtils = {
     'twitter:creator': '@govthostelcare'
   }),
 
-  // 🔍 SEO validation helpers
+  // ðŸ” SEO validation helpers
   validateSEO: {
     titleLength: (title) => title && title.length >= 30 && title.length <= 60,
     descriptionLength: (desc) => desc && desc.length >= 120 && desc.length <= 160,
@@ -131,7 +131,7 @@ export const seoUtils = {
     hasCanonical: (url) => url && url.startsWith('https://govthostelcare.me/')
   },
 
-  // 🏷️ Generate meta tags array for dynamic insertion
+  // ðŸ·ï¸ Generate meta tags array for dynamic insertion
   generateMetaTags: (seoData) => {
     const tags = [];
     
@@ -160,7 +160,7 @@ export const seoUtils = {
     return tags;
   },
 
-  // 📈 Performance optimization helpers
+  // ðŸ“ˆ Performance optimization helpers
   performance: {
     preloadCriticalResources: () => [
       { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
@@ -180,7 +180,7 @@ export const seoUtils = {
     }
   },
 
-  // 🌐 Internationalization helpers
+  // ðŸŒ Internationalization helpers
   i18n: {
     generateHrefLang: (languages = []) => {
       return languages.map(lang => ({
@@ -197,7 +197,7 @@ export const seoUtils = {
   }
 };
 
-// 🎯 Common SEO patterns for the application
+// ðŸŽ¯ Common SEO patterns for the application
 export const commonSEOPatterns = {
   // Homepage SEO
   homepage: {

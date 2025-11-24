@@ -15,10 +15,10 @@ const Header = ({ warden, sidebarOpen, setSidebarOpen, logout }) => {
         >
           <FaBars />
         </button>
-        <h1 className="text-lg sm:text-xl font-bold text-white">🏠 Incharge Dashboard</h1>
+        <h1 className="text-lg sm:text-xl font-bold text-white">ðŸ  Incharge Dashboard</h1>
       </div>
 
-      {/* Right → Welcome + Logout */}
+      {/* Right â†’ Welcome + Logout */}
       <div className="flex items-center gap-4">
         <span className="hidden sm:block text-gray-300">
           Welcome, <span className="text-blue-400 font-semibold">{warden.name}</span>

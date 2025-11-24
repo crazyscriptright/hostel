@@ -1,4 +1,4 @@
-// 🎯 Comprehensive SEO Configuration for GovtHostelCare
+// ðŸŽ¯ Comprehensive SEO Configuration for GovtHostelCare
 export const seoConfig = {
   default: {
     title: "GovtHostelCare - Modern Hostel Management for Students",
@@ -83,7 +83,7 @@ export const seoConfig = {
   }
 };
 
-// 🌐 Site-wide SEO settings
+// ðŸŒ Site-wide SEO settings
 export const siteSEO = {
   siteName: "GovtHostelCare",
   siteUrl: "https://govthostelcare.me",
@@ -95,7 +95,7 @@ export const siteSEO = {
   backgroundColor: "#ffffff"
 };
 
-// 📊 Structured Data Templates
+// ðŸ“Š Structured Data Templates
 export const structuredDataTemplates = {
   organization: {
     "@context": "https://schema.org",
@@ -135,7 +135,7 @@ export const structuredDataTemplates = {
   }
 };
 
-// 🎯 Dynamic SEO function
+// ðŸŽ¯ Dynamic SEO function
 export const getDynamicSEO = (page, customData = {}) => {
   const baseSEO = seoConfig[page] || seoConfig.default;
   return {

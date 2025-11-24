@@ -40,7 +40,7 @@ const ComplaintsTab = ({ complaints, handleWithdraw }) => {
 
             {/* Date */}
             <p className="text-xs text-slate-500 mb-4">
-              📅 {new Date(comp.created_at).toLocaleString()}
+              ðŸ“… {new Date(comp.created_at).toLocaleString()}
             </p>
 
             {/* Proof Image */}
@@ -65,7 +65,7 @@ const ComplaintsTab = ({ complaints, handleWithdraw }) => {
 
             {comp.withdraw_count >= 3 && (
               <p className="text-red-500 text-sm mt-3">
-                ❌ Withdraw limit reached
+                âŒ Withdraw limit reached
               </p>
             )}
           </div>

@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FaUserCircle } from 'react-icons/fa'; // ✅ User icon
+import { FaUserCircle } from 'react-icons/fa'; // âœ… User icon
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -92,7 +92,7 @@ const Navbar = () => {
           className="md:hidden focus:outline-none text-indigo-300 text-2xl"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
-          ☰
+          â˜°
         </button>
       </div>
 

@@ -32,7 +32,7 @@ const DashboardTab = ({ student, complaints }) => {
       fetch(`${import.meta.env.VITE_API_BASE_URL}/student_analytics/${shid}`)
         .then(res => res.json())
         .then(data => setAnalytics(data))
-        .catch(err => console.error("Analytics fetch error:", err));
+        .catch(err => {});
     }
   }, []);
 

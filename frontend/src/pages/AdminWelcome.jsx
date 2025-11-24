@@ -1,6 +1,6 @@
 import React from "react";
 import AdminSidebar from "../components/AdminSidebar";
-import AdminAnalytics from "../components/AdminAnalytics";   // 🆕 import
+import AdminAnalytics from "../components/AdminAnalytics";   // ðŸ†• import
 
 const AdminWelcome = () => {
   return (
@@ -10,10 +10,10 @@ const AdminWelcome = () => {
       <div className="ml-0 md:ml-64 p-8 space-y-8">
         <h1 className="text-3xl font-bold">Welcome, Admin!</h1>
         <p className="text-lg mb-6">
-          Here’s a snapshot of your hostel system.
+          Hereâ€™s a snapshot of your hostel system.
         </p>
 
-        {/* 🆕 analytics component */}
+        {/* ðŸ†• analytics component */}
         <AdminAnalytics />
       </div>
     </div>

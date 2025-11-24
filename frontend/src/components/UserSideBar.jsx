@@ -54,7 +54,7 @@ const UserSideBar = ({ onSelect, active }) => {
       });
       
     } catch (err) {
-      console.error("Logout failed:", err);
+
       // Even if logout fails, clear local data and redirect
     } finally {
       // Clear all localStorage data

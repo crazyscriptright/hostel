@@ -8,7 +8,7 @@ const ResetPassword = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [message, setMessage] = useState("");
 
-  // 🔹 Fetch user's name using existing endpoint
+  // ðŸ”¹ Fetch user's name using existing endpoint
   useEffect(() => {
     const fetchUserName = async () => {
       try {
@@ -25,10 +25,10 @@ const ResetPassword = () => {
         if (res.ok) {
           setName(data.name);
         } else {
-          setMessage("❌ SHID not found.");
+          setMessage("âŒ SHID not found.");
         }
       } catch (err) {
-        setMessage("❌ Failed to fetch user information.");
+        setMessage("âŒ Failed to fetch user information.");
       }
     };
 
@@ -39,7 +39,7 @@ const ResetPassword = () => {
     e.preventDefault();
 
     if (newPassword !== confirmPassword) {
-      setMessage("❌ Passwords do not match.");
+      setMessage("âŒ Passwords do not match.");
       return;
     }
 
@@ -55,9 +55,9 @@ const ResetPassword = () => {
     const data = await res.json();
 
     if (res.ok) {
-      setMessage("✅ Password has been reset successfully.");
+      setMessage("âœ… Password has been reset successfully.");
     } else {
-      setMessage("❌ " + (data.detail || "Failed to reset password."));
+      setMessage("âŒ " + (data.detail || "Failed to reset password."));
     }
   };
 
@@ -67,7 +67,7 @@ const ResetPassword = () => {
         <h2 className="text-2xl font-semibold mb-2 text-center">Reset Password</h2>
         {name && (
           <p className="text-center text-gray-600 mb-4">
-            Hello, <strong>{name}</strong> 👋
+            Hello, <strong>{name}</strong> ðŸ‘‹
           </p>
         )}
         <form onSubmit={handleSubmit} className="space-y-4">

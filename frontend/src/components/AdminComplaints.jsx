@@ -1,7 +1,7 @@
 /*  src/pages/AdminComplaints.jsx
-    Complaint dashboard – table ▸ overdue ▸ summary cards (slider)
-    • horizontal timeline modal
-    • icon tool‑tips + confirm prompt
+    Complaint dashboard â€“ table â–¸ overdue â–¸ summary cards (slider)
+    â€¢ horizontal timeline modal
+    â€¢ icon toolâ€‘tips + confirm prompt
 ------------------------------------------------------------------*/
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { adminAxios } from "../utils/axiosConfig";
@@ -17,18 +17,18 @@ import {
 } from "react-icons/fa";
 import AdminSidebar from "../components/AdminSidebar";
 
-/* ───── constants ───── */
+/* â”€â”€â”€â”€â”€ constants â”€â”€â”€â”€â”€ */
 const PAGE_SIZE = 12;
 const OVERDUE_DAYS = 3;
 const TABLE_HEIGHT = "75vh";
 const STATUS_COLORS = {
   Pending: "text-yellow-600",
-  "In‑Progress": "text-blue-600",
+  "Inâ€‘Progress": "text-blue-600",
   Resolved: "text-green-600",
   Rejected: "text-red-600",
 };
 
-/* ───── main component ───── */
+/* â”€â”€â”€â”€â”€ main component â”€â”€â”€â”€â”€ */
 const AdminComplaints = () => {
   /* state */
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
@@ -48,7 +48,7 @@ const AdminComplaints = () => {
   /* refs (MUST be before early returns) */
   const sliderRef = useRef(null);
 
-  /* ─── data ─── */
+  /* â”€â”€â”€ data â”€â”€â”€ */
   const fetchAll = async () => {
     try {
       setLoading(true);
@@ -62,7 +62,7 @@ const AdminComplaints = () => {
       setOverdue(Array.isArray(o) ? o : (o.overdue || []));
       setComplaints(Array.isArray(c) ? c : (c.complaints || []));
     } catch (err) {
-      console.error('Error loading complaints:', err);
+
       setError("Failed to load complaints.");
       setSummary([]);
       setOverdue([]);
@@ -112,11 +112,11 @@ const AdminComplaints = () => {
     sliderRef.current.scrollBy({ left: dir * width * 0.9, behavior: "smooth" });
   };
 
-  /* early splash / error */
-  if (loading) return <Splash text="Loading…" pulse />;
+  /* early splashâ€¯/â€¯error */
+  if (loading) return <Splash text="Loadingâ€¦" pulse />;
   if (error) return <Splash text={error} error />;
 
-  /* ───── render ───── */
+  /* â”€â”€â”€â”€â”€ render â”€â”€â”€â”€â”€ */
   return (
     <div className="min-h-screen flex bg-gray-100 text-gray-800" style={{ marginLeft: "-10pc" }}>
       <AdminSidebar isOpen={isSidebarOpen} setIsOpen={setIsSidebarOpen} />
@@ -136,7 +136,7 @@ const AdminComplaints = () => {
           </button>
         </h1>
 
-        {/* 1️⃣ FULL TABLE */}
+        {/* 1ï¸âƒ£ FULL TABLE */}
         <section className="mb-12">
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-2xl font-semibold">All Complaints</h2>
@@ -145,7 +145,7 @@ const AdminComplaints = () => {
               onChange={(e) => setStatusFilter(e.target.value)}
               className="border rounded px-3 py-1 text-sm"
             >
-              {["All", "Pending", "In‑Progress", "Resolved", "Rejected"].map(
+              {["All", "Pending", "Inâ€‘Progress", "Resolved", "Rejected"].map(
                 (s) => (
                   <option key={s}>{s}</option>
                 )
@@ -207,10 +207,10 @@ const AdminComplaints = () => {
           </div>
         </section>
 
-        {/* 2️⃣ OVERDUE */}
+        {/* 2ï¸âƒ£ OVERDUE */}
         <OverdueSection overdue={overdue} />
 
-        {/* 3️⃣ SUMMARY SLIDER */}
+        {/* 3ï¸âƒ£ SUMMARY SLIDER */}
         <section className="mt-12">
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-2xl font-semibold">Hostel Summary</h2>
@@ -228,7 +228,7 @@ const AdminComplaints = () => {
             ref={sliderRef}
             className="flex gap-6 overflow-x-auto pb-3 scroll-smooth snap-x snap-mandatory"
           >
-            {summary.map((h) => (
+            {Array.isArray(summary) && summary.map((h) => (
               <div key={h.hid} className="snap-start shrink-0 w-[18rem]">
                 <SummaryCard {...h} />
               </div>
@@ -245,12 +245,12 @@ const AdminComplaints = () => {
   );
 };
 
-/* ───── Details Modal ───── */
+/* â”€â”€â”€â”€â”€ Details Modal â”€â”€â”€â”€â”€ */
 const DetailsModal = ({ complaint, onClose }) => {
-  const steps = ["Created", "In‑Progress", "Resolved", "Rejected"];
+  const steps = ["Created", "Inâ€‘Progress", "Resolved", "Rejected"];
   const reached = {
     Created: true,
-    "In‑Progress": ["In‑Progress", "Resolved", "Rejected"].includes(
+    "Inâ€‘Progress": ["Inâ€‘Progress", "Resolved", "Rejected"].includes(
       complaint.status
     ),
     Resolved: complaint.status === "Resolved",
@@ -321,7 +321,7 @@ const DetailsModal = ({ complaint, onClose }) => {
 
         <DetailRow
           label="Description"
-          value={complaint.description || "—"}
+          value={complaint.description || "â€”"}
           isLong
         />
         {complaint.proofimage && (
@@ -339,7 +339,7 @@ const DetailsModal = ({ complaint, onClose }) => {
   );
 };
 
-/* ───── reusable UI pieces ───── */
+/* â”€â”€â”€â”€â”€ reusable UI pieces â”€â”€â”€â”€â”€ */
 const SummaryCard = ({ hostel_name, hid, total, pending, resolved, overdue }) => (
   <div className="bg-white rounded-xl shadow p-5 h-full">
     <h3 className="text-lg font-semibold mb-1">{hostel_name}</h3>
@@ -358,7 +358,7 @@ const OverdueSection = ({ overdue }) => (
     <h2 className="text-2xl font-semibold mb-4 flex items-center gap-2 text-red-600">
       <FaExclamationTriangle /> Overdue&nbsp;({overdue.length})
       <span className="text-sm text-gray-500 font-normal">
-        &nbsp;(&gt; {OVERDUE_DAYS} days)
+        &nbsp;(&gt; {OVERDUE_DAYS}Â days)
       </span>
     </h2>
     {overdue.length === 0 ? (
@@ -371,7 +371,7 @@ const OverdueSection = ({ overdue }) => (
               <Th align="center">CID</Th>
               <Th>Hostel</Th>
               <Th>Type</Th>
-              <Th align="center">Age (days)</Th>
+              <Th align="center">AgeÂ (days)</Th>
               <Th>Warden</Th>
             </tr>
           </thead>
@@ -397,7 +397,7 @@ const OverdueSection = ({ overdue }) => (
 const ActionIcons = ({ cid, update }) => (
   <div className="flex gap-4 justify-center text-xl">
     <HoverIcon label="Resolve" color="green" onClick={() => update(cid, "Resolved")} icon={<FaCheck />} />
-    <HoverIcon label="Progress" color="blue" onClick={() => update(cid, "In‑Progress")} icon={<FaSpinner />} />
+    <HoverIcon label="Progress" color="blue" onClick={() => update(cid, "Inâ€‘Progress")} icon={<FaSpinner />} />
     <HoverIcon label="Reject" color="red" onClick={() => update(cid, "Rejected")} icon={<FaTimes />} />
   </div>
 );
@@ -424,7 +424,7 @@ const HoverIcon = ({ label, color, onClick, icon }) => (
   </button>
 );
 
-/* ───── tiny helpers ───── */
+/* â”€â”€â”€â”€â”€ tiny helpers â”€â”€â”€â”€â”€ */
 const Splash = ({ text, pulse = false, error = false }) => (
   <div
     className={`min-h-screen flex items-center justify-center text-lg ${

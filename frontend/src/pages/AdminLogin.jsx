@@ -24,7 +24,7 @@ const AdminLogin = () => {
         navigate("/admin/welcome");
       }
     } catch (err) {
-      alert("❌ Invalid credentials");
+      alert("âŒ Invalid credentials");
     }
   };
 
@@ -52,7 +52,7 @@ const AdminLogin = () => {
             type="password"
             {...register("password", { required: true })}
             className="w-full px-4 py-2 border rounded-lg mt-1 focus:outline-none focus:ring-2 focus:ring-blue-400"
-            placeholder="••••••••"
+            placeholder="â€¢â€¢â€¢â€¢â€¢â€¢â€¢â€¢"
           />
         </div>
 
