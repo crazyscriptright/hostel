@@ -57,11 +57,16 @@ const AdminComplaints = () => {
         adminAxios.get("/admin/complaints/overdue"),
         adminAxios.get("/admin/complaints"),
       ]);
-      setSummary(s.summary);
-      setOverdue(o.overdue);
-      setComplaints(c.complaints);
-    } catch {
+      // Handle both direct array and wrapped object response
+      setSummary(Array.isArray(s) ? s : (s.summary || []));
+      setOverdue(Array.isArray(o) ? o : (o.overdue || []));
+      setComplaints(Array.isArray(c) ? c : (c.complaints || []));
+    } catch (err) {
+      console.error('Error loading complaints:', err);
       setError("Failed to load complaints.");
+      setSummary([]);
+      setOverdue([]);
+      setComplaints([]);
     } finally {
       setLoading(false);
     }
@@ -72,10 +77,12 @@ const AdminComplaints = () => {
 
   /* derived table rows */
   const filtered = useMemo(
-    () =>
-      statusFilter === "All"
+    () => {
+      if (!complaints || !Array.isArray(complaints)) return [];
+      return statusFilter === "All"
         ? complaints
-        : complaints.filter((c) => c.status === statusFilter),
+        : complaints.filter((c) => c.status === statusFilter);
+    },
     [complaints, statusFilter]
   );
   useEffect(() => {

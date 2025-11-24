@@ -55,10 +55,14 @@ const AdminWardens = () => {
           adminAxios.get("/admin/wardens"),
           adminAxios.get("/admin/analytics"),
         ]);
-        setWardens(wData.wardens);
-        setHostels(aData.hostels);
-      } catch {
+        // Handle both direct array and wrapped object response
+        setWardens(Array.isArray(wData) ? wData : (wData.wardens || []));
+        setHostels(Array.isArray(aData) ? [] : (aData.hostels || []));
+      } catch (err) {
+        console.error('Error loading wardens:', err);
         setError("Failed to load wardens.");
+        setWardens([]);
+        setHostels([]);
       } finally {
         setLoading(false);
       }
@@ -67,13 +71,14 @@ const AdminWardens = () => {
 
   /* search & filter logic */
   const filtered = useMemo(() => {
+    if (!wardens || !Array.isArray(wardens)) return [];
     const t = search.toLowerCase();
     return wardens
       .filter(
         (w) =>
-          w.name.toLowerCase().includes(t) ||
-          w.mail.toLowerCase().includes(t) ||
-          w.phone.includes(t)
+          w.name?.toLowerCase().includes(t) ||
+          w.mail?.toLowerCase().includes(t) ||
+          w.phone?.includes(t)
       )
       .filter((w) =>
         hostelFilter === "all" ? true : w.hostel_name === hostelFilter
@@ -152,7 +157,7 @@ const AdminWardens = () => {
     }
   };
 
-  const hostelNames = ["all", ...new Set(hostels.map((h) => h.name))];
+  const hostelNames = ["all", ...new Set((hostels || []).map((h) => h.name).filter(Boolean))];
 
   /* splash screens */
   if (loading) return <Splash text="Loading…" pulse />;

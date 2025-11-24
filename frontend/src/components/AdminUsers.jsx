@@ -36,9 +36,11 @@ const AdminUsers = () => {
     (async () => {
       try {
         const { data } = await adminAxios.get("/admin/students");
-        setStudents(data.students);
-      } catch {
+        setStudents(data.students || []);
+      } catch (err) {
+        console.error('Error loading students:', err);
         setError("Failed to load students.");
+        setStudents([]);
       } finally {
         setLoading(false);
       }
@@ -47,13 +49,14 @@ const AdminUsers = () => {
 
   /* search + filter */
   const filtered = useMemo(() => {
+    if (!students || !Array.isArray(students)) return [];
     const t = search.toLowerCase();
     return students
       .filter(
         (s) =>
-          s.name.toLowerCase().includes(t) ||
-          s.mail.toLowerCase().includes(t) ||
-          s.phone.includes(t)
+          s.name?.toLowerCase().includes(t) ||
+          s.mail?.toLowerCase().includes(t) ||
+          s.phone?.includes(t)
       )
       .filter((s) => (hostelFilter === "all" ? true : s.hostel_name === hostelFilter));
   }, [students, search, hostelFilter]);
@@ -97,7 +100,7 @@ const AdminUsers = () => {
     }
   };
 
-  const hostelNames = ["all", ...new Set(students.map((s) => s.hostel_name))];
+  const hostelNames = ["all", ...new Set((students || []).map((s) => s.hostel_name))];
 
   if (loading)
     return <ScreenMsg text="Loading users…" pulse />;
