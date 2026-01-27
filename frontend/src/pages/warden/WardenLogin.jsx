@@ -26,9 +26,6 @@ export default function WardenLogin() {
         // ✅ Save warden info in localStorage
         localStorage.setItem("warden", JSON.stringify(data.warden));
 
-        // ✅ Tokens are automatically handled by axios interceptor
-        console.log("✅ Warden login successful!");
-
         // ✅ Redirect to warden dashboard
         navigate("/warden/dashboard");
       } else {
@@ -36,13 +33,17 @@ export default function WardenLogin() {
       }
     } catch (err) {
       console.error("❌ Warden login error:", err);
-      
+
       if (err.response?.data?.detail) {
         setErrorMsg(err.response.data.detail);
       } else if (err.response?.status === 401) {
-        setErrorMsg("❌ Invalid credentials! Please check your email and password.");
-      } else if (err.message.includes('CORS')) {
-        setErrorMsg("❌ Network error! Please check your connection and try again.");
+        setErrorMsg(
+          "❌ Invalid credentials! Please check your email and password.",
+        );
+      } else if (err.message.includes("CORS")) {
+        setErrorMsg(
+          "❌ Network error! Please check your connection and try again.",
+        );
       } else {
         setErrorMsg("⚠️ Something went wrong! Please try again.");
       }
@@ -70,7 +71,9 @@ export default function WardenLogin() {
         <form onSubmit={handleSubmit} className="space-y-5">
           {/* Email */}
           <div>
-            <label className="block text-gray-300 font-medium mb-1">Email</label>
+            <label className="block text-gray-300 font-medium mb-1">
+              Email
+            </label>
             <input
               type="email"
               name="mail"
